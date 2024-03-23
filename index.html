@@ -7,25 +7,46 @@
     <link rel="stylesheet" href="/assets/simple.css" />
     <link rel="stylesheet" href="/assets/hljs-default.css" />
     <title>Document</title>
-    <script src="script.js" defer></script>
+    <script src="session.js" defer></script>
   </head>
   <body>
-    <header><h2>Kurzanleitung für {WEB-API-NAME}</h2></header>
+    <header><h2>Kurzanleitung für Javascript Session Storage</h2></header>
     <main>
       <h3>Wozu braucht es diese WEB-API</h3>
       <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam odio
-        mauris, <kbd>sollicitudin</kbd> et tellus quis, tincidunt tincidunt
-        urna. <mark>Vivamus facilisis mi</mark> arcu, quis tempor sapien porta
-        laoreet. Nulla nec semper arcu. Proin vehicula at urna eu tristique.
-        Fusce dignissim ante libero, ut vulputate ex congue ac. Proin malesuada,
-        mauris a ultrices congue, urna est lacinia felis, quis ornare diam mi et
-        mauris. Suspendisse ornare finibus diam nec egestas. Nunc tristique ante
-        at erat varius, eu pulvinar dui sollicitudin. In at aliquam nulla, ut
-        tristique arcu. Nam non nibh condimentum, pulvinar sapien ac, gravida
-        est. Morbi dapibus tristique turpis, et auctor odio egestas at. Vivamus
-        placerat mollis magna, et fringilla ligula semper a. In eleifend
-        sagittis ante, id volutpat nisi rutrum a.
+        Session Storage ist ein Teil der Web Storage API, die es Webanwendungen ermöglicht, Daten direkt im Browser des Benutzers zu speichern. <br>
+        Im Gegensatz zu Cookies, die vom Server gesendet und empfangen werden, erfolgt der Zugriff auf den Session Storage und dessen Manipulation ausschließlich über JavaScript auf der Client-Seite. <br>
+        Hier eine einfache Erklärung, was Session Storage ist und wie er funktioniert:
+
+        <br> <h3>Was ist Session Storage?</h3>
+        <strong>Speicherort im Browser:</strong> Session Storage ermöglicht es, Daten temporär im Webbrowser des Benutzers zu speichern. <br>
+        <strong>Lebensdauer:</strong> Die gespeicherten Daten bleiben erhalten, solange die Browser-Tab-Session aktiv ist. Sie werden gelöscht, sobald der Tab oder der Browser geschlossen wird.<br>
+        <strong>Kapazität:</strong> Bietet mehr Speicherplatz als Cookies (ca. 5MB oder mehr je nach Browser).<br>
+        <strong>Pro Tab isoliert:</strong> Jeder Tab hat seinen eigenen isolierten Speicherbereich, sodass Sessions verschiedener Tabs einander nicht beeinflussen.
+        <h3>Grundlegende Operationen</h3>
+        <strong>Speichern von Daten</strong><br>
+        Um Daten im Session Storage zu speichern, verwendet man die setItem(key, value) Methode. Der key ist dabei der Bezeichner für den zu speichernden Wert.<br>
+
+        
+        sessionStorage.setItem('meinSchluessel', 'meinWert');<br>
+        <strong>Abrufen von Daten</strong><br>
+        Daten werden mit der getItem(key) Methode abgerufen. Gibt den Wert zurück, der dem angegebenen Schlüssel zugeordnet ist.<br>
+
+        
+        let meinWert = sessionStorage.getItem('meinSchluessel');
+        console.log(meinWert); // Gibt 'meinWert' aus <br>
+        <strong>Löschen von Daten</strong><br>
+        Einzelne Daten können mit removeItem(key) entfernt werden, während clear() alle Daten im Session Storage des Benutzers für die aktuelle Domain löscht.<br>
+
+        
+        sessionStorage.removeItem('meinSchluessel'); // Löscht den spezifischen Eintrag
+        sessionStorage.clear(); // Löscht alle Einträge im Session Storage<br>
+
+        <h3>Verwendungsszenarien</h3>
+        <strong>Formulardaten speichern:</strong> Zwischenspeichern von Benutzereingaben, falls die Seite neu geladen wird.<br>
+        <strong>Benutzerpräferenzen:</strong> Speichern von vorübergehenden Einstellungen wie Spracheinstellungen oder Themenauswahl.<br>
+        <strong>Zwischenspeichern von Daten für Single Page Applications (SPAs):</strong> Temporäres Speichern von Daten, während der Benutzer die Anwendung nutzt.<br>
+        <kbd>sollicitudin</kbd> <mark>Vivamus facilisis mi</mark> 
       </p>
       <h3>Codebeispiele</h3>
       <button id="beispiel1">Ein Beispielskript ausführen</button>
@@ -58,11 +79,17 @@
       <h3>Weiterführende Links:</h3>
       <ul>
         <li>
-          Mdn: <a href="https://developer.mozilla.org/en-US/">Beispiel</a>
+          MDN Web Docs: <a href="https://developer.mozilla.org/en-US/docs/Web/API/Window/sessionStorage">Session Storage auf MDN</a>
+        </li>
+        <li>
+            W3Schools: <a href="https://www.w3schools.com/jsref/prop_win_sessionstorage.asp">W3Schools Web Storage Tutorial</a>
+        </li>
+        <li>
+            Wiki: <a href="https://wiki.selfhtml.org/wiki/JavaScript/Web_Storage">Selfhtml Wiki</a>
         </li>
       </ul>
     </main>
-    <footer>von {name}, {name}, ... - WT2</footer>
+    <footer>von Paul Klemm, Marius Wagner, Lea Frank - WT2</footer>
     <!--Neccesary for code highlighting below - just dont touch it-->
     <script src="/assets/highlight.min.js"></script>
     <script>
