@@ -10,7 +10,7 @@
     <script src="session.js" defer></script>
   </head>
   <body>
-    <header><h2>Kurzanleitung für Javascript Session Storage</h2></header>
+    <header><h2>Kurzanleitung für Javascript Session Storage von Marius</h2></header>
     <main>
       <h3>Wozu braucht es diese WEB-API</h3>
       <p>
@@ -23,10 +23,16 @@
         <strong>Lebensdauer:</strong> Die gespeicherten Daten bleiben erhalten, solange die Browser-Tab-Session aktiv ist. Sie werden gelöscht, sobald der Tab oder der Browser geschlossen wird.<br>
         <strong>Kapazität:</strong> Bietet mehr Speicherplatz als Cookies (ca. 5MB oder mehr je nach Browser).<br>
         <strong>Pro Tab isoliert:</strong> Jeder Tab hat seinen eigenen isolierten Speicherbereich, sodass Sessions verschiedener Tabs einander nicht beeinflussen.
+        
+        <br> <h3>Unterscheidung zum Cookie</h3>
+        <strong>Lebensdauer:</strong> Das Cookie bleibt erhalten, auch nach dem schließen eines Tabs oder dem Browser. Hier von ausgenommen: Das Session-Cookie.<br>
+        <strong>Kapazität:</strong> Das Session Storage verfügt über ein Speicherplatz von bis zu 5mb. Der Cookie hingegen nur über 4KB.<br>
+        <strong>Zugriff</strong> Das Cookie kann über verschiedene Tabs hinweg aggieren. Das Session Storage nur innerhalb des aktuelle Tabs.<br>
+        <strong>Serverkommunikation</strong> Das Cookie kommunziert per Server-Client-Anfrage. Das Session-Storage ist hingegen ein rein Clientseitig.<br>
+        
         <h3>Grundlegende Operationen</h3>
         <strong>Speichern von Daten</strong><br>
         Um Daten im Session Storage zu speichern, verwendet man die setItem(key, value) Methode. Der key ist dabei der Bezeichner für den zu speichernden Wert.<br>
-
         
         sessionStorage.setItem('meinSchluessel', 'meinWert');<br>
         <strong>Abrufen von Daten</strong><br>
