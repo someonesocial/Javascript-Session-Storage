@@ -10,88 +10,135 @@
     <script src="session.js" defer></script>
   </head>
   <body>
-    <header><h2>Kurzanleitung für Javascript Session Storage von Marius</h2></header>
+    <header>
+      <h2>Kurzanleitung für Javascript Session Storage von Marius</h2>
+    </header>
     <main>
       <h3>Wozu braucht es diese WEB-API</h3>
       <p>
-        Session Storage ist ein Teil der Web Storage API, die es Webanwendungen ermöglicht, Daten direkt im Browser des Benutzers zu speichern. <br>
-        Im Gegensatz zu Cookies, die vom Server gesendet und empfangen werden, erfolgt der Zugriff auf den Session Storage und dessen Manipulation ausschließlich über JavaScript auf der Client-Seite. <br>
-        Hier eine einfache Erklärung, was Session Storage ist und wie er funktioniert:
+        Session Storage ist ein Teil der Web Storage API, die es Webanwendungen
+        ermöglicht, Daten direkt im Browser des Benutzers zu speichern. <br />
+        Im Gegensatz zu Cookies, die vom Server gesendet und empfangen werden,
+        erfolgt der Zugriff auf den Session Storage und dessen Manipulation
+        ausschließlich über JavaScript auf der Client-Seite. <br />
+        Hier eine einfache Erklärung, was Session Storage ist und wie er
+        funktioniert:
 
-        <br> <h3>Was macht das Session Storage aus?</h3>
-        <strong>Speicherort im Browser:</strong> Session Storage ermöglicht es, Daten temporär im Webbrowser des Benutzers zu speichern. <br>
-        <strong>Lebensdauer:</strong> Die gespeicherten Daten bleiben erhalten, solange die Browser-Tab-Session aktiv ist. Sie werden gelöscht, sobald der Tab oder der Browser geschlossen wird.<br>
-        <strong>Kapazität:</strong> Bietet mehr Speicherplatz als Cookies (ca. 5MB oder mehr je nach Browser).<br>
-        <strong>Pro Tab isoliert:</strong> Jeder Tab hat seinen eigenen isolierten Speicherbereich, sodass Sessions verschiedener Tabs einander nicht beeinflussen.
-        
-        <br> <h3>Unterscheidung zum Cookie</h3>
-        <strong>Lebensdauer:</strong> Das Cookie bleibt erhalten, auch nach dem schließen eines Tabs oder dem Browser. Hier von ausgenommen: Das Session-Cookie.<br>
-        <strong>Kapazität:</strong> Das Session Storage verfügt über ein Speicherplatz von bis zu 5mb. Der Cookie hingegen nur über 4KB.<br>
-        <strong>Zugriff</strong> Das Cookie kann über verschiedene Tabs hinweg aggieren. Das Session Storage nur innerhalb des aktuelle Tabs.<br>
-        <strong>Serverkommunikation</strong> Das Cookie kommunziert per Server-Client-Anfrage. Das Session-Storage ist hingegen ein rein Clientseitig.<br>
-        
-        <h3>Grundlegende Operationen</h3>
-        <strong>Speichern von Daten</strong><br>
-        Um Daten im Session Storage zu speichern, verwendet man die setItem(key, value) Methode. Der key ist dabei der Bezeichner für den zu speichernden Wert.<br>
-        
-        sessionStorage.setItem('meinSchluessel', 'meinWert');<br>
-        <strong>Abrufen von Daten</strong><br>
-        Daten werden mit der getItem(key) Methode abgerufen. Gibt den Wert zurück, der dem angegebenen Schlüssel zugeordnet ist.<br>
-
-        
-        let meinWert = sessionStorage.getItem('meinSchluessel');
-        console.log(meinWert); // Gibt 'meinWert' aus <br>
-        <strong>Löschen von Daten</strong><br>
-        Einzelne Daten können mit removeItem(key) entfernt werden, während clear() alle Daten im Session Storage des Benutzers für die aktuelle Domain löscht.<br>
-
-        
-        sessionStorage.removeItem('meinSchluessel'); // Löscht den spezifischen Eintrag
-        sessionStorage.clear(); // Löscht alle Einträge im Session Storage<br>
-
-        <h3>Verwendungsszenarien</h3>
-        <strong>Formulardaten speichern:</strong> Zwischenspeichern von Benutzereingaben, falls die Seite neu geladen wird.<br>
-        <strong>Benutzerpräferenzen:</strong> Speichern von vorübergehenden Einstellungen wie Spracheinstellungen oder Themenauswahl.<br>
-        <strong>Zwischenspeichern von Daten für Single Page Applications (SPAs):</strong> Temporäres Speichern von Daten, während der Benutzer die Anwendung nutzt.<br>
-        <kbd>sollicitudin</kbd> <mark>Vivamus facilisis mi</mark> 
+        <br />
       </p>
+
+      <h3>Was macht das Session Storage aus?</h3>
+      <strong>Speicherort im Browser:</strong> Session Storage ermöglicht es,
+      Daten temporär im Webbrowser des Benutzers zu speichern. <br />
+      <strong>Lebensdauer:</strong> Die gespeicherten Daten bleiben erhalten,
+      solange die Browser-Tab-Session aktiv ist. Sie werden gelöscht, sobald der
+      Tab oder der Browser geschlossen wird.<br />
+      <strong>Kapazität:</strong> Bietet mehr Speicherplatz als Cookies (ca. 5MB
+      oder mehr je nach Browser).<br />
+      <strong>Pro Tab isoliert:</strong> Jeder Tab hat seinen eigenen isolierten
+      Speicherbereich, sodass Sessions verschiedener Tabs einander nicht
+      beeinflussen.
+
+      <br />
+      <h3>Unterscheidung zum Cookie</h3>
+      <strong>Lebensdauer:</strong> Das Cookie bleibt erhalten, auch nach dem
+      schließen eines Tabs oder dem Browser. Hier von ausgenommen: Das
+      Session-Cookie.<br />
+      <strong>Kapazität:</strong> Das Session Storage verfügt über ein
+      Speicherplatz von bis zu 5mb. Der Cookie hingegen nur über 4KB.<br />
+      <strong>Zugriff</strong> Das Cookie kann über verschiedene Tabs hinweg
+      aggieren. Das Session Storage nur innerhalb des aktuelle Tabs.<br />
+      <strong>Serverkommunikation</strong> Das Cookie kommunziert per
+      Server-Client-Anfrage. Das Session-Storage ist hingegen ein rein
+      Clientseitig.<br />
+
+      <h3>Grundlegende Operationen</h3>
+      <strong>Speichern von Daten</strong><br />
+      Um Daten im Session Storage zu speichern, verwendet man die setItem(key,
+      value) Methode. Der key ist dabei der Bezeichner für den zu speichernden
+      Wert.<br />
+
+      sessionStorage.setItem('meinSchluessel', 'meinWert');<br />
+      <strong>Abrufen von Daten</strong><br />
+      Daten werden mit der getItem(key) Methode abgerufen. Gibt den Wert zurück,
+      der dem angegebenen Schlüssel zugeordnet ist.<br />
+
+      let meinWert = sessionStorage.getItem('meinSchluessel');
+      console.log(meinWert); // Gibt 'meinWert' aus <br />
+      <strong>Löschen von Daten</strong><br />
+      Einzelne Daten können mit removeItem(key) entfernt werden, während clear()
+      alle Daten im Session Storage des Benutzers für die aktuelle Domain
+      löscht.<br />
+
+      sessionStorage.removeItem('meinSchluessel'); // Löscht den spezifischen
+      Eintrag sessionStorage.clear(); // Löscht alle Einträge im Session
+      Storage<br />
+
+      <h3>Verwendungsszenarien</h3>
+      <strong>Formulardaten speichern:</strong> Zwischenspeichern von
+      Benutzereingaben, falls die Seite neu geladen wird.<br />
+      <strong>Benutzerpräferenzen:</strong> Speichern von vorübergehenden
+      Einstellungen wie Spracheinstellungen oder Themenauswahl.<br />
+      <strong
+        >Zwischenspeichern von Daten für Single Page Applications
+        (SPAs):</strong
+      >
+      Temporäres Speichern von Daten, während der Benutzer die Anwendung
+      nutzt.<br />
+      <kbd>sollicitudin</kbd> <mark>Vivamus facilisis mi</mark>
       <h3>Codebeispiele</h3>
-      <button id="beispiel1">Ein Beispielskript ausführen</button>
+      <input id="sessionColor" type="color" value="" />
+      <button id="beispiel1">Farbe in sessionStorrage speichern</button>
       <pre><code class="language-js"> 
-    const container = document.querySelector("#container");
-    const text = document.querySelector("#text");
-    
-    const totalTime = 7500;
-    const breatheTime = (totalTime / 5) * 2;
-    const holdTime = totalTime / 5;
-    
-    breathAnimation();
-    
-    function breathAnimation() {
-        text.innerHTML = "Einatmen!";
-        container.className = "container grow"; // Growanimation in css
-    
-        setTimeout(() => {
-        text.innerHTML = "Halten";
-    
-        setTimeout(() => {
-            text.innerHTML = "Ausatmen!";
-            container.className = "container shrink"; // shrinkanimation in css
-        }, holdTime); // nach dem Halten ausatmen
-        }, breatheTime); // Nach einem Atemzyklus halten
-    }
-    
-    setInterval(breathAnimation, totalTime);
+const beispiel1 = document.querySelector("#beispiel1");
+beispiel1.addEventListener("click", executeExample);
+
+// Prüfen ob sessionStorage.color existiert
+if ("color" in sessionStorage) {
+  document.querySelector("#sessionColor").value = sessionStorage.color;
+}
+
+// sessionStorage speichern
+function executeExample() {
+  sessionStorage.setItem(
+    "color",
+    document.querySelector("#sessionColor").value
+  );
+}
+
+
+      // speichern in sessionStorage
+      sessionStorage.setItem("key", "value");
+
+      // aufrufen aus sessionStorage
+      let data = sessionStorage.getItem("key");
+
+      // löschen aus sessionStorage
+      sessionStorage.removeItem("key");
+
+      // alles in sessionStorage löschen
+      sessionStorage.clear();        
       </code></pre>
       <h3>Weiterführende Links:</h3>
       <ul>
         <li>
-          MDN Web Docs: <a href="https://developer.mozilla.org/en-US/docs/Web/API/Window/sessionStorage">Session Storage auf MDN</a>
+          MDN Web Docs:
+          <a
+            href="https://developer.mozilla.org/en-US/docs/Web/API/Window/sessionStorage"
+            >Session Storage auf MDN</a
+          >
         </li>
         <li>
-            W3Schools: <a href="https://www.w3schools.com/jsref/prop_win_sessionstorage.asp">W3Schools Web Storage Tutorial</a>
+          W3Schools:
+          <a href="https://www.w3schools.com/jsref/prop_win_sessionstorage.asp"
+            >W3Schools Web Storage Tutorial</a
+          >
         </li>
         <li>
-            Wiki: <a href="https://wiki.selfhtml.org/wiki/JavaScript/Web_Storage">Selfhtml Wiki</a>
+          Wiki:
+          <a href="https://wiki.selfhtml.org/wiki/JavaScript/Web_Storage"
+            >Selfhtml Wiki</a
+          >
         </li>
       </ul>
     </main>
