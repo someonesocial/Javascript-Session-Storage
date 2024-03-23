@@ -12,4 +12,5 @@ function executeExample() {
     "color",
     document.querySelector("#sessionColor").value
   );
+  alert("Gespeichert!");
 }
