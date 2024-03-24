@@ -11,46 +11,68 @@
   </head>
   <body>
     <header>
-      <h2>Kurzanleitung für Javascript Session Storage von Marius</h2>
+      <h2>Kurzanleitung für Javascript - Session Storage</h2>
     </header>
     <main>
       <h3>Wozu braucht es diese WEB-API</h3>
       <p>
-        Session Storage ist ein Teil der Web Storage API, die es Webanwendungen
-        ermöglicht, Daten direkt im Browser des Benutzers zu speichern. <br />
-        Im Gegensatz zu Cookies, die vom Server gesendet und empfangen werden,
-        erfolgt der Zugriff auf den Session Storage und dessen Manipulation
-        ausschließlich über JavaScript auf der Client-Seite. <br />
-        Hier eine einfache Erklärung, was Session Storage ist und wie er
-        funktioniert:
-
+        Diese API ermöglich es Daten innerhalb einer
+        <strong>"Sitzung"</strong> zu engl. <strong>"Session"</strong> im
+        Browser zu speichern. Diese API wird durch die Lebensdauer, dem
+        Speicherort und der Speicherkapazität definiert. Sie ist Teil der Web
+        Storage API. <br />
+        <br />
+        <strong>Speicherort</strong><br />
+        Direkte Speicherung im Browser. <br />
+        <strong>Lebensdauer</strong><br />
+        Die gespeicherten Daten bleiben erhalten, solange die
+        Browser-Tab-Session aktiv ist. Sie werden gelöscht, sobald der Tab oder
+        der Browser geschlossen wird.<br />
+        <strong>Speicherkapazität</strong><br />
+        Je nach Browser stehen zwischen 5 und 10 MB zu verfügung.
+        <li>Google Chrome: Ca. 10 MB</li>
+        <li>Mozilla Firefox: Ca. 10 MB</li>
+        <li>Apple Safari: Ca. 5 MB</li>
+        <br />
+        <strong>Pro Tab isoliert</strong><br />
+        Jeder Tab hat seinen eigenen isolierten Speicherbereich, sodass Sessions
+        verschiedener Tabs einander nicht beeinflussen.
         <br />
       </p>
 
-      <h3>Was macht das Session Storage aus?</h3>
-      <strong>Speicherort im Browser:</strong> Session Storage ermöglicht es,
-      Daten temporär im Webbrowser des Benutzers zu speichern. <br />
-      <strong>Lebensdauer:</strong> Die gespeicherten Daten bleiben erhalten,
-      solange die Browser-Tab-Session aktiv ist. Sie werden gelöscht, sobald der
-      Tab oder der Browser geschlossen wird.<br />
-      <strong>Kapazität:</strong> Bietet mehr Speicherplatz als Cookies (ca. 5MB
-      oder mehr je nach Browser).<br />
-      <strong>Pro Tab isoliert:</strong> Jeder Tab hat seinen eigenen isolierten
-      Speicherbereich, sodass Sessions verschiedener Tabs einander nicht
-      beeinflussen.
-
       <br />
+      <h3>Auswirkung auf das Nutzerverhalten</h3>
+      <strong>Leistung</strong>
+      <li>Reduzierte Ladezeiten</li>
+      <li>Erhöhte Anwendungsleistung</li>
+      <br />
+
+      <strong>Sicherheit</strong>
+      <li>Minimiert Potenzial von Cross-Site-Scripting</li>
+      <li>Daten können nur von Seiten gleicher Henkunft gelesen & geladen werden</li>
+      <br />
+
+      <strong>Benutzerfreundlichkeit</strong>
+      <li>Erhöhte Absicherung & Komfort</li>
+      <li>Sicherung von Benutzerdefinierten Daten</li>
+      <br />
+
       <h3>Unterscheidung zum Cookie</h3>
-      <strong>Lebensdauer:</strong> Das Cookie bleibt erhalten, auch nach dem
-      schließen eines Tabs oder dem Browser. Hier von ausgenommen: Das
-      Session-Cookie.<br />
-      <strong>Kapazität:</strong> Das Session Storage verfügt über ein
-      Speicherplatz von bis zu 5mb. Der Cookie hingegen nur über 4KB.<br />
-      <strong>Zugriff</strong> Das Cookie kann über verschiedene Tabs hinweg
-      aggieren. Das Session Storage nur innerhalb des aktuelle Tabs.<br />
-      <strong>Serverkommunikation</strong> Das Cookie kommunziert per
-      Server-Client-Anfrage. Das Session-Storage ist hingegen ein rein
-      Clientseitig.<br />
+
+      <strong>Lebensdauer</strong><br />
+      Das Cookie bleibt erhalten, auch nach dem Schließen eines Tabs oder dem
+      Browser. Hier von ausgenommen: Das Session-Cookie.<br />
+
+      <strong>Speicherkapazität</strong><br />
+      Session-Storage (5-10 MB) <strong>></strong> Cookie (4KB)<br />
+
+      <strong>Zugriff</strong><br />
+      Das Cookie kann über verschiedene Tabs hinweg aggieren. Das Session
+      Storage nur innerhalb des aktuelle Tabs.<br />
+
+      <strong>Serverkommunikation</strong><br />
+      Cookie: Server-Client-Anfrage <br />
+      Session-Storage: Clientseitig<br />
 
       <h3>Grundlegende Operationen</h3>
       <strong>Speichern von Daten</strong><br />
